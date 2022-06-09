@@ -50,7 +50,7 @@ const SingleEvent = ({ data, lang }) => {
         <div className="">
           <div className="flex flex-col md:flex-row  justify-between border-b items-center">
             <Place url={projectIcon} text={data.location[lang]} />
-            <Share info="https://edcommission.com/events/%D9%81%D8%B9%D8%A7%D9%84%D9%8A%D8%A7%D8%AA-%D8%A7%D9%84%D9%86%D8%A7%D8%AF%D9%8A-%D8%A7%D9%84%D8%B5%D9%8A%D9%81%D9%8A-%D9%84%D9%84%D8%B9%D8%A7%D9%85-2021" />
+            <Share info={`https://edcommission.com/events/${data.slug.current}`} />
             <Place url={calenderIcon} text={data.date} />
           </div>
 
@@ -67,7 +67,7 @@ const SingleEvent = ({ data, lang }) => {
               <Img
                 fluid={img.asset.fluid}
                 className=" rounded-md"
-                alt={data.title}
+                alt="image"
               />
             ))}
           </div>
@@ -94,7 +94,7 @@ export default SingleEvent
 const Place = ({ url, text }) => {
   return (
     <div className="flex items-center my-4 gap-5 ">
-      <img src={url} className="w-8" alt={text} />
+      <img src={url} className="w-8" alt="image" />
       <p>{text}</p>
     </div>
   )

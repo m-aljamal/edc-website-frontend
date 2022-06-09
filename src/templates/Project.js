@@ -39,6 +39,7 @@ export const query = graphql`
       videoPoster
 
       projectGoals {
+        _key
         ar
         en
       }
@@ -46,7 +47,9 @@ export const query = graphql`
         ar
         en
       }
+      id
       image {
+        _key
         asset {
           fluid(maxWidth: 4000) {
             ...GatsbySanityImageFluid

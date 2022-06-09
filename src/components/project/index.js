@@ -85,7 +85,10 @@ const Index = ({ data, lang }) => {
             >
               <ul className="py-12 grid   md:grid-cols-2 grid-cols-1 gap-10 px-4  ">
                 {data.projectGoals.map(p => (
-                  <li className="text-xl text-mainblue font-semibold bg-gray-200 bg-opacity-75 rounded-md p-2 ">
+                  <li
+                    className="text-xl text-mainblue font-semibold bg-gray-200 bg-opacity-75 rounded-md p-2 "
+                    key={p._key}
+                  >
                     {p[lang]}
                   </li>
                 ))}
@@ -113,6 +116,8 @@ const Index = ({ data, lang }) => {
                     <Img
                       fluid={img.asset.fluid}
                       className="w-full h-96 rounded-md"
+                      key={img._key}
+                      alt="proImage"
                     />
                   )
               )}
