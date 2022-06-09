@@ -25,19 +25,19 @@ const LanguageSelector = ({ location, lang }) => {
   return (
     <div className=" px-10 lg:px-0 py-2 lg:py-0   ">
       {lang === "ar" ? (
-        <div
+        <button
           onClick={languges[0].change}
           className=" cursor-pointer font-medium"
         >
           <span className=" text-lg text-gray-800 font-bold">{languges[0].name}</span>
-        </div>
+        </button>
       ) : (
-        <div
+        <button
           onClick={languges[1].change}
           className=" cursor-pointer font-medium"
         >
           <span className=" text-lg text-gray-800 font-bold">{languges[1].name}</span>
-        </div>
+        </button>
       )}
     </div>
   )

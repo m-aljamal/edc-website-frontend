@@ -27,34 +27,22 @@ const Footer = ({ lang }) => {
 
   const text = {
     ar: {
-      welcome: "تفضل بزيارتنا: ",
       callus: "اتصل بنا:",
       contact: "التواصل الاجتماعي: ",
       address: "العنوان:",
       phone: "الهاتف: ",
       email: "الإيميل: ",
-      socialtext: `
-      يسرنا تواصلكم والإجابة على استفساراتكم
-عبر صفحاتنا على مواقع التواصل الاجتماعي
-      `,
     },
 
     en: {
-      welcome: "Visit Us: ",
       callus: "Call Us: ",
       contact: "Social media:",
       address: "Address: ",
       phone: "Phone: ",
       email: "Email: ",
-      socialtext: `
-      We are pleased to contact you and answer your questions
-Via our social media pages
-      `,
     },
   }
-  const { welcome, callus, contact, address, phone, email, socialtext } = text[
-    lang
-  ]
+  const { callus, contact, address, phone, email } = text[lang]
   return (
     <Background image={img.footerBackground.childImageSharp.fluid}>
       <div className="container py-4 ">

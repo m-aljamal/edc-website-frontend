@@ -3,7 +3,6 @@ import phoneIcon from "../../assist/icons/contact/phone.svg"
 import emailIcon from "../../assist/icons/contact/email.svg"
 import sociallIcon from "../../assist/icons/contact/social.svg"
 import Title from "../shared/Title"
-import SocialLinks from "../shared/navbar/socialLinks"
 import FooterSocialLinks from "../shared/footer/FooterSocialLinks"
 
 const Link = ({ href, text }) => {

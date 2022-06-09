@@ -2,6 +2,8 @@ import React from "react"
 import { Link } from "gatsby"
 import LanguageSelector from "./LanguageSelector"
 export default ({ lang, location, size, visible, showSidebar }) => {
+  const [showSubLinks, setShowSubLinks] = React.useState(false)
+
   const mainLinks = [
     {
       id: 1,
@@ -43,16 +45,33 @@ export default ({ lang, location, size, visible, showSidebar }) => {
       arabicText: "معرض الصور",
       englishText: "Gallery",
       turkText: "tukish",
-      url: "/gallery",
+      url: "#",
+      subLinks: [
+        {
+          id: 6.1,
+          arabicText: "الصور",
+          englishText: "Photos",
+          url: "/images",
+        },
+        {
+          id: 6.2,
+          arabicText: "فيديو",
+          englishText: "Videos",
+          url: "/videos",
+        },
+      ],
     },
   ]
   return (
     <nav>
-      <ul className="  lg:flex gap-5 pt-8  ">
+      <div className="  lg:flex gap-5 pt-8  ">
         {mainLinks.map(link => (
-          <li
-            className=" text-lg font-bold text-gray-800 hover:bg-gray-200 lg:hover:bg-transparent  px-10 lg:px-0 py-2 lg:py-0"
+          <button
+            className=" text-lg font-bold text-gray-800 hover:bg-gray-200 lg:hover:bg-transparent  px-10 lg:px-0 py-2 lg:py-0 relative"
             key={link.id}
+            onClick={
+              link.subLinks ? () => setShowSubLinks(!showSubLinks) : null
+            }
           >
             <Link
               activeClassName="text-mainblue"
@@ -60,10 +79,29 @@ export default ({ lang, location, size, visible, showSidebar }) => {
             >
               {lang === "ar" ? link.arabicText : link.englishText}
             </Link>
-          </li>
+            {link.subLinks && (
+              <div
+                className={`absolute left-0  bg-gray-100 p-4 rounded-md shadow-md ${
+                  showSubLinks ? "block " : "hidden"
+                }`}
+              >
+                {link.subLinks.map(subLink => (
+                  <Link
+                    activeClassName="text-mainblue"
+                    to={lang === "ar" ? subLink.url : "/" + lang + subLink.url}
+                    key={subLink.id}
+                    className="text-gray-800 hover:text-mainblue block"
+                  >
+                    {lang === "ar" ? subLink.arabicText : subLink.englishText}
+                  </Link>
+                ))}
+              </div>
+            )}
+          </button>
         ))}
         <LanguageSelector lang={lang} location={location} />
-      </ul>
+      </div>
+      <div></div>
     </nav>
   )
 }

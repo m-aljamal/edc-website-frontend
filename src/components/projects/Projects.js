@@ -32,7 +32,7 @@ const Projects = ({ lang }) => {
       <Title title={lang === "ar" ? "مشاريعنا" : "Our Projects"} />
       <div className=" mt-8 ">
         {projects.nodes.map((pro, i) => (
-          <div>
+          <div key={pro.id}>
             {i % 2 === 0 ? (
               <div className="flex flex-col md:flex-row my-10 md:my-0 ">
                 <InformationContainer
@@ -68,6 +68,12 @@ const VideoContainer = ({ poster, videoSrc }) => {
     <div className="md:w-1/2 ">
       <video controls poster={poster} className="rounded-md">
         <source src={videoSrc} type="video/mp4" />
+        <track
+          src="captions_en.vtt"
+          kind="captions"
+          srcLang="en"
+          label="english_captions"
+        ></track>
       </video>
     </div>
   )

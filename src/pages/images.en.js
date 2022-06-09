@@ -1,12 +1,12 @@
 import React from "react"
 import Layout from "../components/shared/Layout"
-import GalleryIndex from "../components/gallery"
+import ImageIndex from "../components/gallery/ImageIndex"
 import SEO from "../components/shared/seo"
 const EventsPage = ({ location }) => {
   return (
     <Layout location={location} lang="en">
-      <SEO title="Gallery" lang="en" />
-      <GalleryIndex />
+      <SEO title="Image gallery" lang="en" />
+      <ImageIndex />
     </Layout>
   )
 }

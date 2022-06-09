@@ -43,7 +43,7 @@ const SingleEvent = ({ data, lang }) => {
         <Img
           fluid={data.panner.asset.fluid}
           className=" rounded-md h-96 md:h-full"
-          alt={data.title}
+          alt="image"
           objectFit="cover"
         />
 

@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import AboutVideo from "./AboutVideo"
 import HeroBackground from "../shared/HeroBackground"
@@ -19,7 +19,9 @@ const AboutPage = ({ lang }) => {
         }
       }
       slides: sanityImagesSlide(title: { eq: "aboutSlides" }) {
+        id
         aboutPageSlide {
+          _key
           asset {
             fluid(maxWidth: 4000) {
               ...GatsbySanityImageFluid
@@ -34,8 +36,6 @@ const AboutPage = ({ lang }) => {
       text1: "تمكيــن..",
       text2: "اكتشاف..",
       text3: "ابتــكار..",
-      visionTitle: "رؤيتنا",
-
       partnerTitle: `
       شركاؤنا:
       `,
@@ -51,7 +51,7 @@ const AboutPage = ({ lang }) => {
       text1: "Empower..",
       text2: "Discover..",
       text3: "Innovate..",
-      visionTitle: "Our Vision",
+
       partnerTitle: `
       Our Partners:
       `,
@@ -61,9 +61,7 @@ const AboutPage = ({ lang }) => {
     },
   }
 
-  const { text1, text2, text3, visionTitle, partnerTitle, partnerBody } = words[
-    lang
-  ]
+  const { text1, text2, text3, partnerTitle, partnerBody } = words[lang]
 
   return (
     <div style={{ direction: lang === "ar" ? "rtl" : "ltr" }}>

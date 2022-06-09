@@ -6,13 +6,11 @@ import {
   WhatsappShareButton,
   TwitterShareButton,
   TwitterIcon,
-  TelegramShareButton,
-  TelegramIcon,
 } from "react-share"
 export default function Share({ info }) {
   return (
-    <ul className="flex gap-1 justify-end    ">
-      <li
+    <div className="flex gap-1 justify-end    ">
+      <button
         onClick={() => {
           navigator.clipboard.writeText(info)
         }}
@@ -32,31 +30,19 @@ export default function Share({ info }) {
             d="M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2h-2M8 7H6a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2v-2"
           />
         </svg>
-      </li>
-      <li>
-        <FacebookShareButton url={info}>
-          <FacebookIcon size={30} round />
-        </FacebookShareButton>
-      </li>
-      <li>
-        <WhatsappShareButton
-          url={info}
-          // title={`مشروع عقل
-          //         لمتابعة المزيد`}
-        >
-          <WhatsappIcon size={30} round />
-        </WhatsappShareButton>
-      </li>
-      <li>
-        <TwitterShareButton url={info}>
-          <TwitterIcon size={30} round />
-        </TwitterShareButton>
-      </li>
-      {/* <li>
-        <TelegramShareButton url={info}>
-          <TelegramIcon size={30} round />
-        </TelegramShareButton>
-      </li> */}
-    </ul>
+      </button>
+
+      <FacebookShareButton url={info}>
+        <FacebookIcon size={30} round />
+      </FacebookShareButton>
+
+      <WhatsappShareButton url={info}>
+        <WhatsappIcon size={30} round />
+      </WhatsappShareButton>
+
+      <TwitterShareButton url={info}>
+        <TwitterIcon size={30} round />
+      </TwitterShareButton>
+    </div>
   )
 }

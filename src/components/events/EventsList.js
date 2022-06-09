@@ -30,16 +30,18 @@ const EventsList = ({ lang }) => {
               ar
               en
             }
+            id
           }
         }
       }
     }
   `)
+
   return (
     <div className="container my-12">
       <div className="grid md:grid-cols-3 grid-cols-1 gap-10">
         {events.edges.map(e => (
-          <Event data={e} key={e.node.slug.current} lang={lang} />
+          <Event data={e} key={e.node.id} lang={lang} />
         ))}
       </div>
     </div>

@@ -3,7 +3,6 @@ import facebook from "../../../assist/icons/socialIcons/facebook-icon.svg"
 import youtube from "../../../assist/icons/socialIcons/youtube-icon.svg"
 import instgram from "../../../assist/icons/socialIcons/instagram-icon.svg"
 import twitter from "../../../assist/icons/socialIcons/twitter-icon.svg"
-import telgram from "../../../assist/icons/socialIcons/telgram.png"
 const socialLinks = [
   {
     url: "https://www.facebook.com/edcmission",
@@ -21,16 +20,12 @@ const socialLinks = [
     url: "https://twitter.com/edcmission",
     icon: twitter,
   },
-  // {
-  //   url: "https://t.me/edcommission",
-  //   icon: telgram,
-  // },
 ]
 export default props => {
   return (
-    <ul className={`flex gap-2  ${props.style}`}>
+    <div className={`flex gap-2  ${props.style}`}>
       {socialLinks.map((link, index) => (
-        <li key={index}>
+        <button key={index}>
           <a href={link.url} target="_blank" rel="noreferrer">
             <img
               src={link.icon}
@@ -38,8 +33,8 @@ export default props => {
               className=" w-8 rounded-b-md "
             />
           </a>
-        </li>
+        </button>
       ))}
-    </ul>
+    </div>
   )
 }

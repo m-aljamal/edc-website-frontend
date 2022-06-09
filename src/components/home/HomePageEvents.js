@@ -32,6 +32,7 @@ const EventsList = ({ lang }) => {
               ar
               en
             }
+            id
           }
         }
       }
@@ -46,13 +47,11 @@ const EventsList = ({ lang }) => {
           {events.edges.map(
             (e, i) =>
               i < 3 && (
-                <div className="relative transition duration-150 ease-out hover:scale-110">
-                  <Event
-                    data={e}
-                    homePage
-                    key={e.node.slug.current}
-                    lang={lang}
-                  />
+                <div
+                  key={e.node.id}
+                  className="relative transition duration-150 ease-out hover:scale-110"
+                >
+                  <Event data={e} homePage lang={lang} />
                 </div>
               )
           )}
@@ -60,7 +59,7 @@ const EventsList = ({ lang }) => {
 
         <div className="lg:w-1/4 h-[500px] lg:h-auto mt-20 lg:mt-0 shadow-lg ">
           <a
-            class="twitter-timeline"
+            className="twitter-timeline"
             data-width="100%"
             data-height="100%"
             href="https://twitter.com/edcmission?ref_src=twsrc%5Etfw"
@@ -70,7 +69,7 @@ const EventsList = ({ lang }) => {
           <script
             async
             src="https://platform.twitter.com/widgets.js"
-            charset="utf-8"
+            charSet="utf-8"
           ></script>
         </div>
       </div>

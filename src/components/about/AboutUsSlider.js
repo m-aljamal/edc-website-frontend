@@ -16,7 +16,6 @@ export default function AboutUsSlider({ slides, lang }) {
       3: "Our Message",
     },
   }
-
   return (
     <div className="mt-12">
       <div className="flex flex-col-reverse md:flex-row  items-center">
@@ -51,7 +50,7 @@ export default function AboutUsSlider({ slides, lang }) {
             }}
           >
             {slides.aboutPageSlide.map(i => (
-              <Img fluid={i.asset.fluid} className="rounded-lg" />
+              <Img fluid={i.asset.fluid} className="rounded-lg" key={i._key} />
             ))}
           </ImageSlider>
         </div>

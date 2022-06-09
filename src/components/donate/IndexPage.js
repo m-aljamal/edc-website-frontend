@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React from "react"
 import Title from "../shared/Title"
 import eurIcon from "../../assist/icons/donate/eurIcon.svg"
 import usdIcon from "../../assist/icons/donate/usdIcon.svg"
