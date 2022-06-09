@@ -94,7 +94,7 @@ export default SingleEvent
 const Place = ({ url, text }) => {
   return (
     <div className="flex items-center my-4 gap-5 ">
-      <img src={url} className="w-8" alt="image" />
+      <img src={url} className="w-8" alt="projectimage" />
       <p>{text}</p>
     </div>
   )
