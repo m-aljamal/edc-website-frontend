@@ -42,7 +42,7 @@ export default ({ lang, location, size, visible, showSidebar }) => {
     },
     {
       id: 6,
-      arabicText: "معرض الصور",
+      arabicText: "المعرض",
       englishText: "Gallery",
       turkText: "tukish",
       url: "#",
@@ -63,7 +63,7 @@ export default ({ lang, location, size, visible, showSidebar }) => {
     },
   ]
   return (
-    <nav>
+    <nav className="">
       <div className="  lg:flex gap-5 pt-8  ">
         {mainLinks.map(link => (
           <button
@@ -79,12 +79,14 @@ export default ({ lang, location, size, visible, showSidebar }) => {
             >
               {lang === "ar" ? link.arabicText : link.englishText}
             </Link>
+            
             {link.subLinks && (
               <div
-                className={`absolute left-0  bg-gray-100 p-4 rounded-md shadow-md ${
+                className={`absolute left-0  bg-gray-100 p-4 rounded-md shadow-md  ${
                   showSubLinks ? "block " : "hidden"
                 }`}
               >
+                
                 {link.subLinks.map(subLink => (
                   <Link
                     activeClassName="text-mainblue"
