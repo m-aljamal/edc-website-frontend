@@ -127,10 +127,10 @@ IBAN:TR30 0001 0000 4377 5918 2550 03
         <div className="container my-8" style={{ direction: "ltr" }}>
           <Share info={shareBanckInfo} />
           {banckInfo.map(b => (
-            <Info title={b.title} pargraph={b.info} lang={lang} />
+            <Info title={b.title} pargraph={b.info} lang={lang} key={b.title}/>
           ))}
           {numbers.map(n => (
-            <BankInfo img={n.img} number={n.number} iban={n.iban} lang={lang} />
+            <BankInfo img={n.img} number={n.number} iban={n.iban} lang={lang} key={n.number}/>
           ))}
         </div>
       </div>

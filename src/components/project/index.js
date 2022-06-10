@@ -241,16 +241,20 @@ const AqilProjectData = ({ lang }) => {
       <p className="mb-8">{text1}</p>
       <div className="flex justify-center ">
         <table className="border ">
-          <tr className="bg-gray-400">
-            <th className="p-2">{table.row1.th}</th>
-            <th>{table.row2.th}</th>
-          </tr>
-          {[...Array(table.row1.td1.length)].map((_, i) => (
-            <tr key={i}>
-              <td className={tdStyle}>{table.row1.td1[i]}</td>
-              <td className={tdStyle}>{table.row2.td1[i]}</td>
+          <thead>
+            <tr className="bg-gray-400">
+              <th className="p-2">{table.row1.th}</th>
+              <th>{table.row2.th}</th>
             </tr>
-          ))}
+          </thead>
+          <tbody>
+            {[...Array(table.row1.td1.length)].map((_, i) => (
+              <tr key={i}>
+                <td className={tdStyle}>{table.row1.td1[i]}</td>
+                <td className={tdStyle}>{table.row2.td1[i]}</td>
+              </tr>
+            ))}
+          </tbody>
         </table>
       </div>
       <p className="my-8">{text2}</p>

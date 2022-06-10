@@ -50,7 +50,9 @@ const SingleEvent = ({ data, lang }) => {
         <div className="">
           <div className="flex flex-col md:flex-row  justify-between border-b items-center">
             <Place url={projectIcon} text={data.location[lang]} />
-            <Share info={`https://edcommission.com/events/${data.slug.current}`} />
+            <Share
+              info={`https://edcommission.com/events/${data.slug.current}`}
+            />
             <Place url={calenderIcon} text={data.date} />
           </div>
 
@@ -68,6 +70,7 @@ const SingleEvent = ({ data, lang }) => {
                 fluid={img.asset.fluid}
                 className=" rounded-md"
                 alt="image"
+                key={img._key}
               />
             ))}
           </div>

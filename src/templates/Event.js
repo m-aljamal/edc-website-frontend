@@ -53,6 +53,7 @@ export const query = graphql`
       }
       video
       imageOfText {
+        _key
         asset {
           fluid(maxWidth: 1500) {
             ...GatsbySanityImageFluid
