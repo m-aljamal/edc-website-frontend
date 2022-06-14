@@ -117,12 +117,5 @@ module.exports = {
       },
     },
     `gatsby-plugin-twitter`,
-
-    {
-      resolve: `gatsby-transformer-remark`,
-      options: {
-        plugins: [`gatsby-remark-embed-video`],
-      },
-    },
   ],
 }
