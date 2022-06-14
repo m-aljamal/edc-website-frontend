@@ -2,7 +2,7 @@ import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
 const GalleryIndex = () => {
-  const [select, setSelect] = React.useState("all")
+  const [select, setSelect] = React.useState("الكل")
   const { images, categories } = useStaticQuery(graphql`
     {
       images: allSanityGallaryImage {
@@ -32,30 +32,33 @@ const GalleryIndex = () => {
       }
     }
   `)
-  console.log({ images, categories })
+
+  const categoriesFilter = categories.nodes.filter(
+    category =>
+      images.nodes.find(image => image.category.id === category.id) !==
+      undefined
+  )
   return (
-    <div className="container">
-      <div className="flex gap-5 justify-center my-5 ">
-        <button
-          className="text-gray-500 font-bold text-lg cursor-pointer"
-          onClick={() => setSelect("all")}
-        >
-          الكل
-        </button>
-        {categories.nodes.map(({ id, title }) => (
-          <button
+    <div className="container py-8">
+      <div className="flex flex-col md:flex-row  gap-5 justify-center my-5 ">
+        <CatButton
+          onClick={() => setSelect("الكل")}
+          select={select}
+          title="الكل"
+        />
+        {categoriesFilter.map(({ id, title }) => (
+          <CatButton
             key={id}
-            className="text-gray-500 font-bold text-lg cursor-pointer"
+            title={title}
             onClick={() => setSelect(title)}
-          >
-            {title}
-          </button>
+            select={select}
+          />
         ))}
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
         {images.nodes
           .filter(
-            ({ category: { title } }) => title === select || select === "all"
+            ({ category: { title } }) => title === select || select === "الكل"
           )
           .map(({ id, image, category }) => (
             <div key={id} className="relative">
@@ -72,3 +75,16 @@ const GalleryIndex = () => {
 }
 
 export default GalleryIndex
+
+const CatButton = ({ title, onClick, select }) => {
+  return (
+    <button
+      className={`${
+        select === title ? "text-mainblue" : "text-gray-400"
+      }  font-bold text-lg cursor-pointer`}
+      onClick={onClick}
+    >
+      {title}
+    </button>
+  )
+}
