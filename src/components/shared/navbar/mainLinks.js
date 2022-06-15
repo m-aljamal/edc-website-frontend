@@ -80,7 +80,7 @@ export default ({ lang, location }) => {
               {lang === "ar" ? "المعرض" : "Gallery"}
               <IoMdArrowDropdown />
             </button>
-            <div className="absolute bg-gray-50 w-full hidden group-hover:block rounded     z-10">
+            <div className="absolute bg-gray-50 w-full hidden group-hover:block rounded z-10">
               <div className="shadow-xl w-20 ">
                 <div className="px-2 text-center py-2 font-semibold">
                   <AppLink

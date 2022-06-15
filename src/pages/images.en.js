@@ -6,7 +6,7 @@ const EventsPage = ({ location }) => {
   return (
     <Layout location={location} lang="en">
       <SEO title="Image gallery" lang="en" />
-      <ImageIndex />
+      <ImageIndex lang="en" />
     </Layout>
   )
 }

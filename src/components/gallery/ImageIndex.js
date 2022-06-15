@@ -1,8 +1,8 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
-const GalleryIndex = () => {
-  const [select, setSelect] = React.useState("الكل")
+import { useSelectMedia } from "../../hooks/useSelectMedia"
+const GalleryIndex = ({ lang }) => {
   const { images, categories } = useStaticQuery(graphql`
     {
       images: allSanityGallaryImage {
@@ -32,43 +32,37 @@ const GalleryIndex = () => {
       }
     }
   `)
+  const {
+    categoriesFilter,
+    select,
+    setSelect,
+    all,
+    filteredMedia,
+  } = useSelectMedia(lang, categories.nodes, images.nodes)
 
-  const categoriesFilter = categories.nodes.filter(
-    category =>
-      images.nodes.find(image => image.category.id === category.id) !==
-      undefined
-  )
   return (
     <div className="container py-8">
       <div className="flex flex-col md:flex-row  gap-5 justify-center my-5 ">
-        <CatButton
-          onClick={() => setSelect("الكل")}
-          select={select}
-          title="الكل"
-        />
-        {categoriesFilter.map(({ id, title }) => (
+        <CatButton onClick={() => setSelect(all)} select={select} title={all} />
+        {categoriesFilter.map(({ id, title, title_en }) => (
           <CatButton
             key={id}
-            title={title}
-            onClick={() => setSelect(title)}
+            title={lang === "ar" ? title : title_en}
+            onClick={() => setSelect(lang === "ar" ? title : title_en)}
             select={select}
           />
         ))}
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-        {images.nodes
-          .filter(
-            ({ category: { title } }) => title === select || select === "الكل"
-          )
-          .map(({ id, image, category }) => (
-            <div key={id} className="relative">
-              <Img
-                fluid={image.asset.fluid}
-                className="w-full h-full rounded-md shadow-md"
-                alt={category.title}
-              />
-            </div>
-          ))}
+        {filteredMedia.map(({ id, image, category }) => (
+          <div key={id} className="relative">
+            <Img
+              fluid={image.asset.fluid}
+              className="w-full h-full rounded-md shadow-md"
+              alt={category.title}
+            />
+          </div>
+        ))}
       </div>
     </div>
   )
@@ -76,7 +70,7 @@ const GalleryIndex = () => {
 
 export default GalleryIndex
 
-const CatButton = ({ title, onClick, select }) => {
+export const CatButton = ({ title, onClick, select }) => {
   return (
     <button
       className={`${
