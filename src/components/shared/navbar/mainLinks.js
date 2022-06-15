@@ -1,25 +1,9 @@
-import React, { useEffect, useRef } from "react"
+import React from "react"
 import { Link } from "gatsby"
 import LanguageSelector from "./LanguageSelector"
 import { IoMdArrowDropdown } from "react-icons/io"
 
-export default ({ lang, location, size, visible, showSidebar }) => {
-  const [showSubLinks, setShowSubLinks] = React.useState(false)
-  const btnRef = useRef()
-
-  useEffect(() => {
-    const closeSubLinks = e => {
-      if (e.path[0] !== btnRef.current) {
-        setShowSubLinks(false)
-      }
-    }
-    document.addEventListener("click", closeSubLinks)
-
-    return () => {
-      document.removeEventListener("click", closeSubLinks)
-    }
-  }, [])
-
+export default ({ lang, location }) => {
   const mainLinks = [
     {
       id: 1,
@@ -90,34 +74,35 @@ export default ({ lang, location, size, visible, showSidebar }) => {
             />
           </button>
         ))}
-        <div className=" relative   ">
-          <button
-            className=" text-lg font-bold text-gray-800 hover:text-gray-400 px-10 lg:px-0 py-2 lg:py-0 flex items-center justify-center w-full"
-            onClick={() => setShowSubLinks(!showSubLinks)}
-            ref={btnRef}
-          >
-            {lang === "ar" ? "المعرض" : "Gallery"}
-            <IoMdArrowDropdown />
-          </button>
-          <div
-            className={` absolute bg-gray-100 shadow-md rounded-md px-6 py-2 text-lg font-medium   left-10 right-10  lg:left-0 lg:right-0  text-center  ${
-              showSubLinks ? "block" : "hidden"
-            }`}
-          >
-            <AppLink
-              text={lang === "ar" ? "الصور" : "Photos"}
-              lang={lang}
-              path="/images"
-              location={location.pathname}
-            />
-            <AppLink
-              text={lang === "ar" ? "فيديو" : "Videos"}
-              lang={lang}
-              path="/videos"
-              location={location.pathname}
-            />
+        <div className="flex justify-center">
+          <div className="relative group">
+            <button className="text-lg font-bold text-gray-800 flex items-center">
+              {lang === "ar" ? "المعرض" : "Gallery"}
+              <IoMdArrowDropdown />
+            </button>
+            <div className="absolute w-full hidden group-hover:block rounded-b border-t-0  z-10">
+              <div className="shadow-xl w-20 ">
+                <div className="px-2 text-center py-2 font-semibold">
+                  <AppLink
+                    text={lang === "ar" ? "الصور" : "Photos"}
+                    lang={lang}
+                    path="/images"
+                    location={location.pathname}
+                  />
+                </div>
+                <div className="px-2 text-center pb-2 font-semibold">
+                  <AppLink
+                    text={lang === "ar" ? "فيديو" : "Videos"}
+                    lang={lang}
+                    path="/videos"
+                    location={location.pathname}
+                  />
+                </div>
+              </div>
+            </div>
           </div>
         </div>
+
         <LanguageSelector lang={lang} location={location} />
       </div>
     </nav>
