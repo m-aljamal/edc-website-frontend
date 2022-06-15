@@ -27,7 +27,7 @@ const GalleryIndex = ({ lang }) => {
         nodes {
           title
           title_en
-          id
+          
         }
       }
     }
