@@ -4,9 +4,9 @@ import AboutPage from "../components/about/aboutPage"
 import SEO from "../components/shared/seo"
 const About = ({ location }) => {
   return (
-    <Layout location={location} lang="ar">
-      <SEO title="من نحن" lang="ar" />
-      <AboutPage lang="ar" />
+    <Layout location={location}>
+      <SEO title="من نحن" />
+      <AboutPage />
     </Layout>
   )
 }

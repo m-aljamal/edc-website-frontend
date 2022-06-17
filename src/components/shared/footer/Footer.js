@@ -3,6 +3,8 @@ import { useStaticQuery, graphql } from "gatsby"
 import Background from "../Background"
 import Img from "gatsby-image"
 import FooterSocialLinks from "./FooterSocialLinks"
+import { useLang } from "../../../context/lang-context"
+import { useFooterText } from "../../../constant/text"
 
 const getImage = graphql`
   {
@@ -22,27 +24,12 @@ const getImage = graphql`
     }
   }
 `
-const Footer = ({ lang }) => {
+const Footer = () => {
+  const [lang] = useLang()
   const img = useStaticQuery(getImage)
 
-  const text = {
-    ar: {
-      callus: "اتصل بنا:",
-      contact: "التواصل الاجتماعي: ",
-      address: "العنوان:",
-      phone: "الهاتف: ",
-      email: "الإيميل: ",
-    },
+  const { footerText } = useFooterText()
 
-    en: {
-      callus: "Call Us: ",
-      contact: "Social media:",
-      address: "Address: ",
-      phone: "Phone: ",
-      email: "Email: ",
-    },
-  }
-  const { callus, contact, address, phone, email } = text[lang]
   return (
     <Background image={img.footerBackground.childImageSharp.fluid}>
       <div className="container py-4 ">
@@ -55,28 +42,28 @@ const Footer = ({ lang }) => {
           }  text-center`}
         >
           <div className="md:w-1/3">
-            <h2 className="my-4 text-white font-bold">{address}</h2>
+            <h2 className="my-4 text-white font-bold">{footerText.address}</h2>
             <p style={{ direction: "ltr" }} className="text-gray-300">
               DOĞAN GÜREŞ PAŞA MAH. <br />
               MUSTAFA EREN CAD. 4/34 MERKEZ/KİLİS
             </p>
           </div>
           <div className="md:w-1/3">
-            <h2 className="my-4 text-white font-bold">{callus}</h2>
+            <h2 className="my-4 text-white font-bold">{footerText.callus}</h2>
             <div className="text-gray-300">
               <div>
-                <p>{phone} </p>
+                <p>{footerText.phone} </p>
                 <p style={{ direction: "ltr" }}>+90 531 507 45 47</p>
                 <p style={{ direction: "ltr" }}>+90 534 661 12 24</p>
               </div>
               <div className="mt-4">
-                <p>{email}</p>
+                <p>{footerText.email}</p>
                 <p>info@edcommission.com</p>
               </div>
             </div>
           </div>
           <div>
-            <h2 className="my-4 text-white font-bold">{contact}</h2>
+            <h2 className="my-4 text-white font-bold">{footerText.contact}</h2>
             <FooterSocialLinks />
           </div>
         </div>

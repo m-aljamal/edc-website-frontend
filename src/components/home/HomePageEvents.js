@@ -2,8 +2,9 @@ import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import Event from "../events/Event"
 import Title from "../shared/Title"
+import { useHomePageText } from "../../constant/text"
 
-const EventsList = ({ lang }) => {
+const EventsList = () => {
   const { events } = useStaticQuery(graphql`
     {
       events: allSanityEvent(sort: { fields: date, order: DESC }, limit: 2) {
@@ -38,10 +39,10 @@ const EventsList = ({ lang }) => {
       }
     }
   `)
-
+  const { eventTitle } = useHomePageText()
   return (
     <div className="container md-font mt-10">
-      <Title title={lang === "ar" ? `آخر الفعاليات` : "Latest Events"} />
+      <Title title={eventTitle} />
       <div className="lg:flex gap-8">
         <div className="grid  grid-cols-1 lg:grid-cols-2 gap-8 mt-8 lg:w-3/4">
           {events.edges.map(
@@ -51,7 +52,7 @@ const EventsList = ({ lang }) => {
                   key={e.node.id}
                   className="relative transition duration-150 ease-out hover:scale-110"
                 >
-                  <Event data={e} homePage lang={lang} />
+                  <Event data={e} homePage />
                 </div>
               )
           )}

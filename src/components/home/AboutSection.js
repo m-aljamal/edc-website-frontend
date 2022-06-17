@@ -1,9 +1,10 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
-import { aboutText } from "../../constant/homePage"
 import earth1 from "../../assist/images/earth1.png"
-const AboutSection = ({ lang }) => {
+import { useHomePageText } from "../../constant/text"
+import { useLang } from "../../context/lang-context"
+const AboutSection = () => {
   const { homePage1, homePage2 } = useStaticQuery(graphql`
     {
       homePage1: sanityBanners(title: { eq: "homePage1" }) {
@@ -26,26 +27,17 @@ const AboutSection = ({ lang }) => {
       }
     }
   `)
-  const { text } = aboutText[lang]
+  const { aboutText } = useHomePageText()
+  const [lang] = useLang()
   return (
     <div className=" relative">
       <div className="container sm:mt-20 mt-10  ">
         <div className="sm:flex items-start mt-[30px] gap-10 justify-between ">
-          <p
-            className="sm:w-1/2 text-justify text-xl  text-gray-800 leading-10 pb-5"
-            // data-sal-duration="800"
-            // data-sal="slide-left"
-            // data-sal-easing="easeOutQuad"
-          >
-            {text}
+          <p className="sm:w-1/2 text-justify text-xl  text-gray-800 leading-10 pb-5">
+            {aboutText.text}
           </p>
 
-          <div
-            className=" relative sm:w-1/2"
-            // data-sal-duration="800"
-            // data-sal="slide-right"
-            // data-sal-easing="easeOutQuad"
-          >
+          <div className=" relative sm:w-1/2">
             <Img
               fluid={homePage1.image.asset.fluid}
               loading="eager"

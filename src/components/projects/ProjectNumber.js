@@ -1,7 +1,9 @@
 import React from "react"
 import Img from "gatsby-image"
 import CountUp from "react-countup"
-const ProjectNumber = ({ data, lang }) => {
+import { useLang } from "../../context/lang-context"
+const ProjectNumber = ({ data }) => {
+  const [lang] = useLang()
   return (
     <div className="items-center">
       <div className="w-1/6  mx-auto">

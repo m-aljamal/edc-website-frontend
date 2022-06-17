@@ -1,6 +1,18 @@
-import React from "react"
+import React, { useEffect } from "react"
 import { navigate } from "gatsby"
-const LanguageSelector = ({ location, lang }) => {
+import { useLang } from "../../../context/lang-context"
+
+const LanguageSelector = ({ location }) => {
+  const [lang, setLang] = useLang()
+
+  useEffect(() => {
+    if (location.pathname.includes("/en")) {
+      setLang("en")
+    } else {
+      setLang("ar")
+    }
+  }, [location, setLang])
+
   const setArabic = () => {
     navigate(location.pathname.replace("/" + lang + "/", "/"))
   }
@@ -22,29 +34,23 @@ const LanguageSelector = ({ location, lang }) => {
       id: 3,
     },
   ]
+
   return (
     <div className=" px-10 lg:px-0 py-2 lg:py-0 w-full text-center lg:w-auto  ">
-      {lang === "ar" ? (
-        <button
-          onClick={languges[0].change}
-          className=" cursor-pointer font-medium"
-        >
-          <span className=" text-lg text-gray-800 font-bold">
-            {languges[0].name}
-          </span>
-        </button>
-      ) : (
-        <button
-          onClick={languges[1].change}
-          className=" cursor-pointer font-medium"
-        >
-          <span className=" text-lg text-gray-800 font-bold">
-            {languges[1].name}
-          </span>
-        </button>
-      )}
+      <LanguageSelectorButton
+        change={lang === "ar" ? languges[0].change : languges[1].change}
+        name={lang === "ar" ? languges[0].name : languges[1].name}
+      />
     </div>
   )
 }
 
 export default LanguageSelector
+
+const LanguageSelectorButton = ({ change, name }) => {
+  return (
+    <button onClick={change} className=" cursor-pointer font-medium">
+      <span className=" text-lg text-gray-800 font-bold">{name}</span>
+    </button>
+  )
+}

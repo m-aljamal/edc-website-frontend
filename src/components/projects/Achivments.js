@@ -3,8 +3,10 @@ import Title from "../shared/Title"
 import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
 import ProjectNumber from "./ProjectNumber"
+import { useAboutText } from "../../constant/text"
+import { useLang } from "../../context/lang-context"
 
-const Achivments = ({ lang }) => {
+const Achivments = () => {
   const { ach, image, earth } = useStaticQuery(graphql`
     {
       ach: allSanityProjectsAchievements {
@@ -43,19 +45,11 @@ const Achivments = ({ lang }) => {
       }
     }
   `)
-  const words = {
-    ar: {
-      title: `منجزاتنا:`,
-    },
-    en: {
-      title: "our achievements",
-    },
-  }
-
-  const { title } = words[lang]
+  const { achivmentTitle } = useAboutText()
+  const [lang] = useLang()
   return (
     <div className="py-20 relative">
-      <Title title={title} />
+      <Title title={achivmentTitle.title} />
       <div className="flex  relative  mt-8">
         <div className="md:w-4/5 w-full  grid md:grid-cols-4 sm:grid-cols-3 grid-cols-2 gap-5">
           <div
@@ -66,7 +60,7 @@ const Achivments = ({ lang }) => {
             <Img fluid={earth.image.asset.fluid} />
           </div>
           {ach.nodes.map((ach, i) => (
-            <ProjectNumber data={ach} key={i} lang={lang} />
+            <ProjectNumber data={ach} key={i} />
           ))}
         </div>
         <div className="w-1/5  hidden sm:flex ">

@@ -3,10 +3,11 @@ import calenderIcon from "../../assist/icons/events/calendar.svg"
 import projectIcon from "../../assist/icons/events/project.svg"
 import Img from "gatsby-image"
 import { Link } from "gatsby"
+import { useLang } from "../../context/lang-context"
 
-const Event = ({ data, homePage, lang }) => {
+const Event = ({ data, homePage }) => {
   const { mainImage, title, location, shortDescription, date } = data.node
-
+  const [lang] = useLang()
   const url = homePage
     ? `events/${data.node.slug.current}`
     : data.node.slug.current

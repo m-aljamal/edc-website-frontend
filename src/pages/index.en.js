@@ -5,9 +5,9 @@ import SEO from "../components/shared/seo"
 
 const IndexPage = ({ location }) => {
   return (
-    <Layout location={location} lang="en">
-      <SEO title="Home" lang="en" />
-      <IndexContent lang="en" />
+    <Layout location={location}>
+      <SEO title="Home" />
+      <IndexContent />
     </Layout>
   )
 }

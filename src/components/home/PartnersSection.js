@@ -2,8 +2,9 @@ import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import Background from "../shared/Background"
 import PartnersLogo from "../../constant/PartnersLogo"
+import { useHomePageText } from "../../constant/text"
 
-const PartnersSection = ({ partnerTitle, ...props }) => {
+const PartnersSection = props => {
   const { banner } = useStaticQuery(graphql`
     {
       banner: sanityBanners(title: { eq: "partners" }) {
@@ -18,17 +19,17 @@ const PartnersSection = ({ partnerTitle, ...props }) => {
       }
     }
   `)
+  const { partnerText } = useHomePageText()
   return (
     <div className="mt-8">
       <Background image={banner.image.asset.fluid}>
-        {partnerTitle && (
-          <h3 className="text-center text py-4 text-mainblue font-bold text-3xl ">
-            {partnerTitle}
-          </h3>
-        )}
+        <h3 className="text-center text py-4 text-mainblue font-bold text-3xl ">
+          {partnerText.partnerTitle}
+        </h3>
+
         {props.partnerBody && (
           <p className="container my-3 leading-6 text-lg text-gray-800 text-justify">
-            {props.partnerBody}
+            {partnerText.partnerBody}
           </p>
         )}
         <div className="py-5">

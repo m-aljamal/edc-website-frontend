@@ -2,8 +2,9 @@ import React from "react"
 import PropTypes from "prop-types"
 import { Helmet } from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
+import { useLang } from "../../context/lang-context"
 
-function SEO({ lang, meta, title }) {
+function SEO({ meta, title }) {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -26,7 +27,7 @@ function SEO({ lang, meta, title }) {
       }
     `
   )
-
+  const [lang] = useLang()
   const metaDescription = site.siteMetadata.description[lang]
   const outTitle = site.siteMetadata.orgTitle[lang]
   const keywords = {

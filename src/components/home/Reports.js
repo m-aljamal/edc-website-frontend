@@ -3,7 +3,8 @@ import Title from "../shared/Title"
 import Img from "gatsby-image"
 import { useStaticQuery } from "gatsby"
 import { FiDownload } from "react-icons/fi"
-const Reports = ({ lang }) => {
+import { useHomePageText } from "../../constant/text"
+const Reports = () => {
   const { reports } = useStaticQuery(graphql`
     {
       reports: allSanityReports {
@@ -21,10 +22,10 @@ const Reports = ({ lang }) => {
       }
     }
   `)
-
+  const { reportTitle } = useHomePageText()
   return (
     <div className="container py-20">
-      <Title title={lang === "ar" ? "التقارير" : "Reports"} />
+      <Title title={reportTitle} />
       <div className="grid lg:grid-cols-3 grid-cols-1 gap-8 mt-12  ">
         {reports.nodes.map(({ cover, id, pdf_url }) => (
           <a
@@ -36,7 +37,7 @@ const Reports = ({ lang }) => {
           >
             <Img
               fluid={cover.asset.fluid}
-              alt="التقرير"
+              alt={reportTitle}
               className="rounded-md shadow-2xl "
             />
 

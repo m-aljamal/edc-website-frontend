@@ -2,8 +2,10 @@ import React from "react"
 import { Link } from "gatsby"
 import LanguageSelector from "./LanguageSelector"
 import { IoMdArrowDropdown } from "react-icons/io"
+import { useLang } from "../../../context/lang-context"
 
-export default ({ lang, location }) => {
+export default ({ location }) => {
+  const [lang] = useLang()
   const mainLinks = [
     {
       id: 1,
@@ -68,7 +70,6 @@ export default ({ lang, location }) => {
           >
             <AppLink
               text={link[lang].title}
-              lang={lang}
               path={link.url}
               location={location.pathname}
             />
@@ -85,7 +86,6 @@ export default ({ lang, location }) => {
                 <div className="px-2 text-center py-2 font-semibold">
                   <AppLink
                     text={lang === "ar" ? "الصور" : "Photos"}
-                    lang={lang}
                     path="/images"
                     location={location.pathname}
                   />
@@ -93,7 +93,6 @@ export default ({ lang, location }) => {
                 <div className="px-2 text-center pb-2 font-semibold">
                   <AppLink
                     text={lang === "ar" ? "فيديو" : "Videos"}
-                    lang={lang}
                     path="/videos"
                     location={location.pathname}
                   />
@@ -109,7 +108,8 @@ export default ({ lang, location }) => {
   )
 }
 
-const AppLink = ({ text, path, lang, location }) => {
+const AppLink = ({ text, path, location }) => {
+  const [lang] = useLang()
   if (lang === "en") {
     location = location.replace("/en", "")
   }

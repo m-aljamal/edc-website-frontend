@@ -4,8 +4,8 @@ import SEO from "../components/shared/seo"
 import WhoWeArePage from "../components/about/WhoWeArePage"
 const IndexPage = ({ location }) => {
   return (
-    <Layout location={location} lang="ar">
-      <SEO title="من نحن" lang="ar" />
+    <Layout location={location}>
+      <SEO title="من نحن" />
       <WhoWeArePage lang="ar" />
     </Layout>
   )

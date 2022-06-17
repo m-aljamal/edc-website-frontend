@@ -1,5 +1,7 @@
 import React from "react"
-const Hero = ({ lang }) => {
+import { useLang } from "../../context/lang-context"
+const Hero = () => {
+  const [lang] = useLang()
   const arabicUrl =
     "https://res.cloudinary.com/dqoung1wz/video/upload/v1634197023/Video/homeVideo-arabic_rf3087.mp4"
   const englishUrl =
