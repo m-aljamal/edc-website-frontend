@@ -1,5 +1,6 @@
 import React from "react"
 import { useLang } from "../context/lang-context"
+import { useStaticQuery, graphql } from "gatsby"
 
 const useFooterText = () => {
   const [lang] = useLang()
@@ -188,10 +189,304 @@ const useAboutText = () => {
     ar: `منجزاتنا:`,
     en: `Our Achievements:`,
   }
+
+  const { slides, slidesOurVision, howWeAreSlides } = useStaticQuery(graphql`
+    {
+      slides: sanityImagesSlide(title: { eq: "ourMessagePage" }) {
+        aboutPageSlide {
+          asset {
+            fluid(maxWidth: 4000) {
+              ...GatsbySanityImageFluid
+            }
+          }
+        }
+      }
+
+      slidesOurVision: sanityImagesSlide(title: { eq: "WhoWeArePage" }) {
+        aboutPageSlide {
+          asset {
+            fluid(maxWidth: 4000) {
+              ...GatsbySanityImageFluid
+            }
+          }
+        }
+      }
+      howWeAreSlides: sanityImagesSlide(title: { eq: "WhoWeArePage" }) {
+        aboutPageSlide {
+          asset {
+            fluid(maxWidth: 4000) {
+              ...GatsbySanityImageFluid
+            }
+          }
+        }
+      }
+    }
+  `)
+
+  const ourMessageText = [
+    {
+      text: {
+        ar: `
+        عقد مؤتمرات تعليميّة ووُرش عمل لنشر الوعي بأهميّة هذه المشاريع وتطويرها.
+  
+          `,
+        en: `
+        Holding educational conferences and workshops to spread awareness of the importance and development of these projects.
+        `,
+      },
+
+      img: slides.aboutPageSlide[0].asset.fluid,
+      id: 1,
+    },
+    {
+      text: {
+        ar: `
+        إنتاج أوراقِ عملٍ، والمساهمةُ في أبحاثٍ متعلّقة بتطوير التعليم في أماكن
+        النزاعات والحروب.
+        `,
+        en: `
+        Compiling working papers and contributing to research related to the development of education in places of conflict and war.
+        `,
+      },
+
+      img: slides.aboutPageSlide[1].asset.fluid,
+      id: 2,
+    },
+    {
+      text: {
+        ar: `
+        تدريب وتطوير المدرّسين العاملين في أماكن النّزاع، ليتمكّنوا من تدريس
+        المناهج الخاصّة بطرقٍ إبداعيّة.
+        `,
+        en: `
+        Training and developing teachers working in conflict areas, to be able to teach the special curricula in creative ways.
+        `,
+      },
+
+      img: slides.aboutPageSlide[2].asset.fluid,
+      id: 3,
+    },
+    {
+      text: {
+        ar: `
+        وفي مسيرتنا نحو رؤيتنا الاستراتيجيّة ولتحقيق رسالتنا على المستويات
+        كافّة، فإنّنا نحتكم إلى منظومة قيمنا المشتركة التي ستبقى دومًا مرجعيّتنا
+        الأولى والأساسيّة.
+        `,
+        en: `
+        In our march towards our strategic vision and to achieve our mission at all levels, we appeal to our common values system, which will always remain our first and primary reference.
+        `,
+      },
+
+      img: slides.aboutPageSlide[3].asset.fluid,
+      id: 4,
+    },
+    {
+      text: {
+        ar: `
+        كما تسعى هيئة تطوير التعليم إلى توفير مناخ تعليميّ متّزن من حيث الوسائل
+        التعليميّة والأدوات اللازمة للطلاب؛ لتنمية مهارات الطلاب العلميّة
+        والذهنيّة والاجتماعيّة والبدنيّة وعلى يد كفاءات بكافّة التخصّصات حسب
+        المناهج السوريّة المعتمدة بالإضافة إلى المناهج الداعمة الأخرى، ويتمّ منح
+        الطلاب شهادات معتمدة ومصدقة من وزارة التربية والتعليم.
+        `,
+        en: `
+        Education Development Commission also seeks to provide a balanced educational climate in terms of educational aids and necessary tools for students to develop students’ scientific, mental, social, and physical skills, by competencies in all majors, according to the approved Syrian curricula in addition to other supporting curricula. Students are granted certificates approved and certified by the Ministry of Education.
+        `,
+      },
+
+      img: slides.aboutPageSlide[4].asset.fluid,
+      id: 5,
+    },
+    {
+      text: {
+        ar: `
+        وتهدف هيئة تطوير التعليم إلى بناء شخصيّة المتعلم المتوازنة بجوانبها
+        الوجدانيّة والعلميّة والفكريّة والاجتماعيّة والنفسيّة والجسديّة عن طريق
+        اكتساب المعارف والمهارات والاتّجاهات والقيم الخلقيّة التي تمكّنه من
+        تطوير نفسه واستخدام التقنيات بشكل إيجابيّ وفق مستواه العمريّ وتوظيفها في
+        المواقف الحياتية وتهيئته للمرحلة الدراسيّة التالية، ويتحقق ذلك من خلال
+        تحقيق الأهداف العامّة.
+        `,
+        en: `
+        Education Development Commission aims to build the learner’s balanced personality with its emotional, scientific, intellectual, social, psychological, and physical aspects by acquiring knowledge, skills, attitudes, and moral values that enable him to develop himself and use techniques positively according to his age level and employ them in life situations and prepare him for the next academic stage, and this is achieved by achieving the general goals.
+        `,
+      },
+
+      img: slides.aboutPageSlide[5].asset.fluid,
+      id: 6,
+    },
+    {
+      text: {
+        ar: `
+        التعاون مع خبراء في مجال التّعليم وتطوير المناهج، داخلَ العالم العربيّ
+        وخارجَه.
+        `,
+        en: `
+        Cooperate with experts in the field of education and curriculum development, inside and outside the Arab world.
+        `,
+      },
+
+      img: slides.aboutPageSlide[6].asset.fluid,
+      id: 7,
+    },
+    {
+      text: {
+        ar: `
+        التعاون مع المنظّمات المحليّة والدوليّة بالإضافة إلى الجمعيّات الخيريّة
+        في العمل على مشاريع تعليميّة محدّدة.
+        `,
+        en: `
+        Cooperate with local and international organizations as well as charitable societies in working on specific educational projects.
+        `,
+      },
+
+      img: slides.aboutPageSlide[7].asset.fluid,
+      id: 8,
+    },
+  ]
+
+  const ourVisionText = [
+    {
+      text: {
+        ar: ` تلتزم هيئة تطوير التعليم بتقديم تعليم شامل عالي الجودة للطلاب في أماكن
+        الأزمات.`,
+        en: ` Education Development Commission is committed to provide high-quality inclusive education to students in crisis places`,
+      },
+
+      img: slidesOurVision.aboutPageSlide[0].asset.fluid,
+      id: 1,
+    },
+  ]
+
+  const howWeAreText = [
+    {
+      text: {
+        ar: `
+        هيئة تطوير التعليم هي منظّمة غير حكوميّة وغير ربحيّة، تعمل على تطوير
+        مناهج دراسيّة خاصّة للطلاب في مناطق الحروب والنزاعات، لتساعدهم على إدراك
+        ما فاتهم من سنوات دراسيّة بسب الحروب. وجاءت فكرة تأسيس الهيئة من إيمان
+        القائمين عليها بوجوب توفّر فرص التعليم النوعيّ لكافّةِ الأطفال الذين
+        يقطنون في أماكن النزاعات، بغضّ النظر عن وضعهم الاجتماعيّ، وطبيعة النزاع
+        السائد في مناطقهم.
+        `,
+        en: `
+        Education Development Commission is a non-governmental, non-profit organization that works to develop special curricula for students in war and conflict areas, to help them catch-up the years of school that they have missed due to wars. The idea of establishing the commission came from the belief of those in charge of it that quality education opportunities should be available to all children who live in conflict areas, regardless of their social status and the nature of the conflict prevailing in their areas.
+        `,
+      },
+
+      img: howWeAreSlides.aboutPageSlide[0].asset.fluid,
+      id: 1,
+    },
+    {
+      text: {
+        ar: `
+        كما وجدت الهيئة – بالإضافة للحاجة إلى فرص تعليم متساوية – حاجةً ماسّة
+        إلى الدّعم النفسيّ للأطفال والمدرّسين المقيمين في أماكن الحرب. ومن هنا
+        عمدت الهيئةُ إلى دمج العمليّة التعليميّة والطرق النفسيّة الحديثة لمساعدة
+        الأطفال على تجاوز الصدمات النفسيّة التي تعرّضوا لها، وبناء شخصيّاتهم
+        ومساعدتهم على تحقيق طموحهم؛
+        `,
+        en: `
+        In addition to the need for equal education opportunities, the commission also found an urgent need for psychological support for children and teachers residing in war zones. Hence, the commission has integrated the educational process and modern psychological methods to help children overcome the psychological trauma they have had, build their personalities, and help them achieve their ambitions.
+        `,
+      },
+      id: 2,
+      img: howWeAreSlides.aboutPageSlide[1].asset.fluid,
+    },
+    {
+      text: {
+        ar: `
+        ولتحقيق هذا الهدف، تعمل هيئة تطوير التعليم عن قرب مع خبراءَ في مجال
+        التعليم والتطوير النفسيّ للأطفال، بالإضافة إلى منظّمات رائدة مختصّة في
+        البلاد التي يتمّ العملُ فيها، من أجل تقديم أفضل الخدمات إلى تلك الشريحة
+        ومراعاة الحساسيّة النفسيّة والاجتماعيّة التي يعاني منها هؤلاء الأطفال.
+
+        `,
+        en: `
+        To achieve this goal, Education Development Commission works closely with experts in the field of education and psychological development for children, in addition to leading specialized organizations in the countries in which they are working, in order to provide the best services to this segment and take into account the psychological and social sensitivity of these children.
+        `,
+      },
+
+      id: 3,
+      img: howWeAreSlides.aboutPageSlide[2].asset.fluid,
+    },
+    {
+      text: {
+        ar: `
+        وتعمل هيئة تطوير التعليم أيضًا على دعم التعليم الرسميّ في المناطق
+        المنكوبة وإنشاء مدارس نوعيّة لتقديم تعليم عالي الجودة، وافتتاح مراكز
+        تعليميّة خاصّة بالأطفال الأيتام وأبناء الشهداء، تهدف إلى تأمين الرعاية
+        التعليميّة والاجتماعيّة والصحّيّة للأطفال للأيتام في المدرسة، لتحقيق
+        التكافل والرعاية الاجتماعيّة، ووضعهم في بيئة صحّية سليمة، وتخفيف وطأة
+        الحرمان وهول المصيبة لديهم بعد فقدانهم لمن كان يعولهم ويرعاهم.
+        `,
+        en: `
+        Education Development Commission also works to support formal education in stricken areas and establish quality schools to provide high quality education and start education centers for orphaned children and children of martyrs, aiming to provide educational, social and health care for orphans in school, to achieve solidarity and social care, and to place them in a healthy and sound environment, and to alleviate the burden of deprivation and the terrible calamity they have after their loss the one who used to sustain and care for them.
+        `,
+      },
+      id: 4,
+      img: howWeAreSlides.aboutPageSlide[3].asset.fluid,
+    },
+    {
+      text: {
+        ar: `
+        وتُدافعُ الهيئة بقوّة عن قيمها المتمثّلة في العدالة والمساواة والتطوير،
+        ولا تنحاز إلى أيّة مجموعة سياسيّة في مناطق النزاع قيد العمل.
+        `,
+        en: `The commission vigorously defends its values of justice, equality, and development, and does not align itself with any political group working in conflict areas.`,
+      },
+      id: 5,
+      img: howWeAreSlides.aboutPageSlide[4].asset.fluid,
+    },
+  ]
   return {
     slogan: slogan[lang],
     buttonsLinks,
     achivmentTitle: achivmentTitle[lang],
+    ourMessageText,
+    ourVisionText,
+    howWeAreText,
   }
 }
-export { useFooterText, useHomePageText, useAboutText }
+
+const useProjectText = () => {
+  const [lang] = useLang()
+  const heroText = {
+    ar: {
+      heroTitle: "تتعاون هيئة تطوير التعليم",
+      heroBody: `
+          مع المنظّمات والجمعيّات المحليّة
+والدوليّة في العمل على مشاريع
+تعليمّية. 
+          `,
+    },
+    en: {
+      heroTitle: "Education Development Commission cooperates",
+      heroBody: `
+      with local and international organizations and societies in working on educational projects.
+      `,
+    },
+  }
+
+  const workshopsText = {
+    ar: {
+      title: `
+            المؤتمرات وورشات العمل:
+            `,
+      body: `
+            تعمل هيئة تطوير التعليم على عقد مؤتمرات سنويّة، لمناقشة تداعيات العمليّة التعليميّة وبحث أفضل الطرق
+لدفع تلك العمليّة إلى الأمام.  
+            `,
+    },
+    en: {
+      title: `Conferences and Workshops:`,
+      body: `Education Development Commission holds annual conferences to discuss the implications of the educational process and the best ways to advance this process.`,
+    },
+  }
+  return {
+    heroText: heroText[lang],
+    workshopsText: workshopsText[lang],
+  }
+}
+export { useFooterText, useHomePageText, useAboutText, useProjectText }

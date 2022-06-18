@@ -15,6 +15,7 @@ export default function AboutUsSlider({ slides }) {
         <div className="md:w-1/4 w-full container  ">
           {buttonsLinks.map(button => (
             <Link
+            key={button.link}
               to={lang === "ar" ? button.link : "/" + lang + button.link}
               className="w-full my-4 py-2 rounded-md outline-none bg-mainblue text-white flex justify-center"
             >

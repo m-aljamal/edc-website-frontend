@@ -5,9 +5,9 @@ import OurMessage from "../components/about/OurMessage"
 
 const our_message = ({ location }) => {
   return (
-    <Layout location={location} lang="en">
-      <SEO title="Our Message" lang="en" />
-      <OurMessage lang="en" />
+    <Layout location={location}>
+      <SEO title="Our Message" />
+      <OurMessage />
     </Layout>
   )
 }

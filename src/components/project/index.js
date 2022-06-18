@@ -6,7 +6,9 @@ import PortableText from "../shared/PortableText"
 import VideoContainer from "../shared/VideoContainer"
 import Share from "../shared/Share"
 import { Helmet } from "react-helmet"
-const Index = ({ data, lang }) => {
+import { useLang } from "../../context/lang-context"
+const Index = ({ data }) => {
+  const [lang] = useLang()
   return (
     <>
       <Helmet

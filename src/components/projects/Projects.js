@@ -1,8 +1,10 @@
 import React from "react"
 import { useStaticQuery, graphql, Link } from "gatsby"
 import Title from "../shared/Title"
+import { useLang } from "../../context/lang-context"
 
-const Projects = ({ lang }) => {
+const Projects = () => {
+  const [lang] = useLang()
   const { projects } = useStaticQuery(graphql`
     {
       projects: allSanityProjects {
@@ -36,7 +38,6 @@ const Projects = ({ lang }) => {
             {i % 2 === 0 ? (
               <div className="flex flex-col md:flex-row my-10 md:my-0 ">
                 <InformationContainer
-                  lang={lang}
                   projectName={pro.projectName[lang]}
                   shortDescription={pro.shortDescription[lang]}
                   link={pro.slug.current}
@@ -47,7 +48,6 @@ const Projects = ({ lang }) => {
               <div className="flex flex-col-reverse md:flex-row">
                 <VideoContainer poster={pro.videoPoster} videoSrc={pro.video} />
                 <InformationContainer
-                  lang={lang}
                   link={pro.slug.current}
                   projectName={pro.projectName[lang]}
                   shortDescription={pro.shortDescription[lang]}
@@ -79,12 +79,8 @@ const VideoContainer = ({ poster, videoSrc }) => {
   )
 }
 
-const InformationContainer = ({
-  projectName,
-  shortDescription,
-  link,
-  lang,
-}) => {
+const InformationContainer = ({ projectName, shortDescription, link }) => {
+  const [lang] = useLang()
   return (
     <div className="p-4 md:w-1/2   border-gray-500 border-4  rounded-md flex items-center justify-center">
       <div className="">

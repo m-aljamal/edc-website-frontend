@@ -2,7 +2,8 @@ import React from "react"
 import Title from "../shared/Title"
 import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
-const WorkShops = ({ lang }) => {
+import { useProjectText } from "../../constant/text"
+const WorkShops = () => {
   const { images } = useStaticQuery(graphql`
     {
       images: allSanityWorkShops {
@@ -19,27 +20,13 @@ const WorkShops = ({ lang }) => {
     }
   `)
 
-  const words = {
-    ar: {
-      title: `
-            المؤتمرات وورشات العمل:
-            `,
-      body: `
-            تعمل هيئة تطوير التعليم على عقد مؤتمرات سنويّة، لمناقشة تداعيات العمليّة التعليميّة وبحث أفضل الطرق
-لدفع تلك العمليّة إلى الأمام.  
-            `,
-    },
-    en: {
-      title: `Conferences and Workshops:`,
-      body: `Education Development Commission holds annual conferences to discuss the implications of the educational process and the best ways to advance this process.`,
-    },
-  }
-  const { title, body } = words[lang]
+  const { workshopsText } = useProjectText()
+
   return (
     <div className="container">
-      <Title title={title} />
+      <Title title={workshopsText.title} />
       <div className="mt-8">
-        <p className="md:text-xl text-lg text-gray-800">{body}</p>
+        <p className="md:text-xl text-lg text-gray-800">{workshopsText.body}</p>
         <div className="grid md:grid-cols-4  gap-5 my-8">
           {images.nodes.map((image, i) => (
             <Img

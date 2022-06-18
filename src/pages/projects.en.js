@@ -4,9 +4,9 @@ import Layout from "../components/shared/Layout"
 import SEO from "../components/shared/seo"
 const ProjectEnglish = ({ location }) => {
   return (
-    <Layout location={location} lang="en">
-      <SEO title="Projects" lang="en" />
-      <ProjectsPage lang="en" />
+    <Layout location={location}>
+      <SEO title="Projects" />
+      <ProjectsPage />
     </Layout>
   )
 }

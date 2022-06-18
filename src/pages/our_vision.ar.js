@@ -4,9 +4,9 @@ import SEO from "../components/shared/seo"
 import OurVision from "../components/about/OurVision"
 const IndexPage = ({ location }) => {
   return (
-    <Layout location={location} lang="ar">
-      <SEO title="رؤيتنا" lang="ar" />
-      <OurVision lang="ar" />
+    <Layout location={location}>
+      <SEO title="رؤيتنا" />
+      <OurVision />
     </Layout>
   )
 }

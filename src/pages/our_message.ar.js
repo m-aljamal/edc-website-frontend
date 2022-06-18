@@ -7,7 +7,7 @@ const our_message = ({ location }) => {
   return (
     <Layout location={location}>
       <SEO title="رسالتنا" />
-      <OurMessage lang="ar" />
+      <OurMessage />
     </Layout>
   )
 }

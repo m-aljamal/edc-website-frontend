@@ -6,7 +6,7 @@ const IndexPage = ({ location }) => {
   return (
     <Layout location={location}>
       <SEO title="من نحن" />
-      <WhoWeArePage lang="ar" />
+      <WhoWeArePage />
     </Layout>
   )
 }
