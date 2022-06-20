@@ -2,7 +2,9 @@ import React from "react"
 import { useSelectMedia } from "../../hooks/useSelectMedia"
 import { CatButton } from "./ImageIndex"
 import { useStaticQuery, graphql } from "gatsby"
-const VideoIndex = ({ lang }) => {
+import { useLang } from "../../context/lang-context"
+const VideoIndex = () => {
+  const [lang] = useLang()
   const { videos, categories } = useStaticQuery(graphql`
     {
       videos: allSanityGallaryVideo {
@@ -33,7 +35,7 @@ const VideoIndex = ({ lang }) => {
     setSelect,
     all,
     filteredMedia,
-  } = useSelectMedia(lang, categories.nodes, videos.nodes)
+  } = useSelectMedia(categories.nodes, videos.nodes)
 
   return (
     <div className="container py-12">

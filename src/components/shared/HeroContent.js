@@ -1,6 +1,6 @@
 import React from "react"
 import HeroBackground from "../shared/HeroBackground"
-export default function HeroContent({ fluid, heroTitle, heroBody, lang }) {
+export default function HeroContent({ fluid, heroTitle, heroBody }) {
   return (
     <div>
       <HeroBackground image={fluid}>

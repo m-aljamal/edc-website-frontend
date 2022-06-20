@@ -1,7 +1,7 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import Event from "./Event"
-const EventsList = ({ lang }) => {
+const EventsList = () => {
   const { events } = useStaticQuery(graphql`
     {
       events: allSanityEvent(sort: { fields: date, order: DESC }) {
@@ -41,7 +41,7 @@ const EventsList = ({ lang }) => {
     <div className="container my-12">
       <div className="grid md:grid-cols-3 grid-cols-1 gap-10">
         {events.edges.map(e => (
-          <Event data={e} key={e.node.id} lang={lang} />
+          <Event data={e} key={e.node.id} />
         ))}
       </div>
     </div>

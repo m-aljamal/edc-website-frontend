@@ -4,6 +4,7 @@ import emailIcon from "../../assist/icons/contact/email.svg"
 import sociallIcon from "../../assist/icons/contact/social.svg"
 import Title from "../shared/Title"
 import FooterSocialLinks from "../shared/footer/FooterSocialLinks"
+import { useContactText } from "../../constant/text"
 
 const Link = ({ href, text }) => {
   return (
@@ -17,10 +18,11 @@ const Link = ({ href, text }) => {
   )
 }
 
-const CallUs = ({ lang }) => {
+const CallUs = () => {
+  const { contactTitle } = useContactText()
   return (
     <div className="py-12 container ">
-      <Title title={` ${lang === "ar" ? "اتصل بنا:" : "Call Us:"} `} />
+      <Title title={contactTitle} />
       <div className=" grid md:grid-cols-3  mt-8">
         <Card icon={emailIcon}>
           <Link

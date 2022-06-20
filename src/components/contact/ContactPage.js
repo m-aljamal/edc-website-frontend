@@ -5,7 +5,8 @@ import LeaveMessage from "./LeaveMessage"
 import Location from "./Loaction"
 import Donate from "../donate/IndexPage"
 import HeroContent from "../shared/HeroContent"
-const ContactPage = ({ lang }) => {
+import { useContactText } from "../../constant/text"
+const ContactPage = () => {
   const { img } = useStaticQuery(graphql`
     {
       img: sanityOtherHeroImgs(title: { eq: "contact" }) {
@@ -21,34 +22,18 @@ const ContactPage = ({ lang }) => {
     }
   `)
 
-  const words = {
-    ar: {
-      heroTitle: "يسرّ هيئة تطوير التعليم",
-      heroBody: `
-      الإجابة على استفساراتكم والاستماع
-      لآرائكم والرد على تعليقاتكم. 
-          `,
-    },
-    en: {
-      heroTitle: "Education Development Commission is pleased",
-      heroBody: `
-      to answer your inquiries, listen to your opinions and respond to your comments.
-      `,
-    },
-  }
-  const { heroTitle, heroBody } = words[lang]
+  const { contactText } = useContactText()
   return (
     <>
       <HeroContent
         fluid={img.image.asset.fluid}
-        heroTitle={heroTitle}
-        heroBody={heroBody}
-        lang={lang}
+        heroTitle={contactText.heroTitle}
+        heroBody={contactText.heroBody}
       />
-      <CallUs lang={lang} />
-      <LeaveMessage lang={lang} />
-      <Location lang={lang} />
-      <Donate lang={lang} />
+      <CallUs />
+      <LeaveMessage />
+      <Location />
+      <Donate />
     </>
   )
 }

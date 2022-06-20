@@ -6,6 +6,7 @@ import tlIcon from "../../assist/icons/donate/tlIcon.svg"
 import { useStaticQuery, graphql } from "gatsby"
 import Background from "../shared/Background"
 import Share from "../shared/Share"
+import { useContactText } from "../../constant/text"
 const IndexPage = ({ lang }) => {
   const { img } = useStaticQuery(graphql`
     {
@@ -22,19 +23,6 @@ const IndexPage = ({ lang }) => {
     }
   `)
 
-  const text = {
-    ar: {
-      title: `كونوا معهم وساهموا في تعليمهم وبناء مستقبلهم`,
-      header: "حساب البنك:",
-    },
-    en: {
-      title: `
-    Be with them and contribute to their education and building their future.
-    `,
-
-      header: "Bank accounts:",
-    },
-  }
   const banckInfo = [
     {
       title: "Bank Name:",
@@ -108,17 +96,17 @@ Account number:77591825-5003
 IBAN:TR30 0001 0000 4377 5918 2550 03
 
  `
-  const { title, header } = text[lang]
+  const { bankTitle } = useContactText()
   return (
     <>
-      <Title title={header} />
+      <Title title={bankTitle.header} />
       <div className="mt-12 font-bold">
         <div className=" relative">
           <Background image={img.image.asset.fluid}>
             <div className=" bg-gray-500 opacity-40 absolute top-0 bottom-0 right-0 left-0"></div>
             <div className="flex items-center justify-center container">
               <h2 className="py-60 z-20 text-white text-3xl font-bold ">
-                {title}
+                {bankTitle.title}
               </h2>
             </div>
           </Background>
@@ -127,10 +115,16 @@ IBAN:TR30 0001 0000 4377 5918 2550 03
         <div className="container my-8" style={{ direction: "ltr" }}>
           <Share info={shareBanckInfo} />
           {banckInfo.map(b => (
-            <Info title={b.title} pargraph={b.info} lang={lang} key={b.title}/>
+            <Info title={b.title} pargraph={b.info} lang={lang} key={b.title} />
           ))}
           {numbers.map(n => (
-            <BankInfo img={n.img} number={n.number} iban={n.iban} lang={lang} key={n.number}/>
+            <BankInfo
+              img={n.img}
+              number={n.number}
+              iban={n.iban}
+              lang={lang}
+              key={n.number}
+            />
           ))}
         </div>
       </div>

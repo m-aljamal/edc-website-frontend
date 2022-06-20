@@ -1,11 +1,13 @@
 import React from "react"
+import { useContactText } from "../../constant/text"
 import Title from "../shared/Title"
 import Form from "./Form"
-const LeaveMessage = ({ lang }) => {
+const LeaveMessage = () => {
+  const { meassageText } = useContactText()
   return (
     <div>
-      <Title title={lang === "ar" ? "اترك لنا رسالة:" : "Leave a message:"} />
-      <Form lang={lang} />
+      <Title title={meassageText} />
+      <Form />
     </div>
   )
 }

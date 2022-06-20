@@ -1,4 +1,3 @@
-import React from "react"
 import { useLang } from "../context/lang-context"
 import { useStaticQuery, graphql } from "gatsby"
 
@@ -489,4 +488,103 @@ const useProjectText = () => {
     workshopsText: workshopsText[lang],
   }
 }
-export { useFooterText, useHomePageText, useAboutText, useProjectText }
+
+const useEventsText = () => {
+  const [lang] = useLang()
+  const heroTitle = {
+    ar: {
+      heroTitle: "الفعاليّات والأنشطة",
+
+      heroBody: `
+      تلعب الفعاليّات والأنشطة دوراً بارزاً في بناء شخصيّة الطالب من خلال تنمية قدراته ومواهبه وتعديل سلوكه واحتياجاته النفسيّة.
+          `,
+    },
+    en: {
+      heroTitle: `Events and Activities`,
+      heroBody: `Events and activities play a prominent role in building student's personality by developing his abilities and talents, modifying his behavior and psychological needs.`,
+    },
+  }
+  return {
+    heroTitle: heroTitle[lang],
+  }
+}
+
+const useContactText = () => {
+  const [lang] = useLang()
+  const contactText = {
+    ar: {
+      heroTitle: "يسرّ هيئة تطوير التعليم",
+      heroBody: `
+      الإجابة على استفساراتكم والاستماع
+      لآرائكم والرد على تعليقاتكم. 
+          `,
+    },
+    en: {
+      heroTitle: "Education Development Commission is pleased",
+      heroBody: `
+      to answer your inquiries, listen to your opinions and respond to your comments.
+      `,
+    },
+  }
+
+  const contactTitle = {
+    ar: "اتصل بنا:",
+    en: "Call Us:",
+  }
+  const meassageText = {
+    ar: "اترك لنا رسالة:",
+    en: "Leave a message:",
+  }
+
+  const messageForm = {
+    ar: {
+      emailText: "الإيميل",
+      name: "الاسم",
+      phone: "الهاتف",
+      buttonText: "أرسل",
+      text: "نص الرسالة",
+    },
+    en: {
+      emailText: "Email",
+      name: "Name",
+      phone: "Phone",
+      buttonText: "Send",
+      text: "Message",
+    },
+  }
+  const ourLocationTitle = {
+    ar: "موقعنا:",
+    en: "Our Location:",
+  }
+
+  const bankTitle = {
+    ar: {
+      title: `كونوا معهم وساهموا في تعليمهم وبناء مستقبلهم`,
+      header: "حساب البنك:",
+    },
+    en: {
+      title: `
+    Be with them and contribute to their education and building their future.
+    `,
+
+      header: "Bank accounts:",
+    },
+  }
+  return {
+    contactText: contactText[lang],
+    contactTitle: contactTitle[lang],
+    meassageText: meassageText[lang],
+    messageForm: messageForm[lang],
+    ourLocationTitle: ourLocationTitle[lang],
+    bankTitle: bankTitle[lang],
+  }
+}
+
+export {
+  useFooterText,
+  useHomePageText,
+  useAboutText,
+  useProjectText,
+  useEventsText,
+  useContactText,
+}

@@ -2,7 +2,9 @@ import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
 import { useSelectMedia } from "../../hooks/useSelectMedia"
-const GalleryIndex = ({ lang }) => {
+import { useLang } from "../../context/lang-context"
+const GalleryIndex = () => {
+  const [lang] = useLang()
   const { images, categories } = useStaticQuery(graphql`
     {
       images: allSanityGallaryImage {
@@ -27,7 +29,6 @@ const GalleryIndex = ({ lang }) => {
         nodes {
           title
           title_en
-          
         }
       }
     }
@@ -38,7 +39,7 @@ const GalleryIndex = ({ lang }) => {
     setSelect,
     all,
     filteredMedia,
-  } = useSelectMedia(lang, categories.nodes, images.nodes)
+  } = useSelectMedia(categories.nodes, images.nodes)
 
   return (
     <div className="container py-8">

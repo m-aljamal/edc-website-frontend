@@ -4,9 +4,9 @@ import IndexContent from "../components/events"
 import SEO from "../components/shared/seo"
 const EventsPage = ({ location }) => {
   return (
-    <Layout location={location} lang="en">
-      <SEO title="Events" lang="en" />
-      <IndexContent lang="en" />
+    <Layout location={location}>
+      <SEO title="Events" />
+      <IndexContent />
     </Layout>
   )
 }

@@ -4,9 +4,9 @@ import ImageIndex from "../components/gallery/ImageIndex"
 import SEO from "../components/shared/seo"
 const EventsPage = ({ location }) => {
   return (
-    <Layout location={location} lang="en">
-      <SEO title="Image gallery" lang="en" />
-      <ImageIndex lang="en" />
+    <Layout location={location}>
+      <SEO title="Image gallery" />
+      <ImageIndex />
     </Layout>
   )
 }

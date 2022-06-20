@@ -4,9 +4,9 @@ import VideoIndex from "../components/gallery/VideoIndex"
 import SEO from "../components/shared/seo"
 const EventsPage = ({ location }) => {
   return (
-    <Layout location={location} lang="en">
-      <SEO title="Video gallery" lang="en" />
-      <VideoIndex lang="en" />
+    <Layout location={location}>
+      <SEO title="Video gallery" />
+      <VideoIndex />
     </Layout>
   )
 }
