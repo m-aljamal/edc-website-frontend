@@ -45,7 +45,7 @@ const VideoIndex = () => {
           <CatButton
             key={id}
             title={lang === "ar" ? title : title_en}
-            onClick={() => setSelect(title)}
+            onClick={() => setSelect(lang === "ar" ? title : title_en)}
             select={select}
           />
         ))}

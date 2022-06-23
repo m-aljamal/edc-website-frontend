@@ -25,7 +25,7 @@ export const useSelectMedia = (categories, mediaArray) => {
       setSelect("All")
     }
   }, [])
-
+ 
   return {
     select,
     setSelect,

@@ -41,7 +41,12 @@ const EventsList = () => {
     <div className="container my-12">
       <div className="grid md:grid-cols-3 grid-cols-1 gap-10">
         {events.edges.map(e => (
-          <Event data={e} key={e.node.id} />
+          <div
+            key={e.node.id}
+            className="relative transition duration-200 ease-out hover:scale-110"
+          >
+            <Event data={e} />
+          </div>
         ))}
       </div>
     </div>
