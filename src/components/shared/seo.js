@@ -23,7 +23,7 @@ function SEO({ title, description, image, article }) {
               ar
               en
             }
-            url
+            siteUrl
             defaultImage: image
             twitterUserName
             author
@@ -39,7 +39,7 @@ function SEO({ title, description, image, article }) {
     defaultTitle,
     titleTemplate,
     defaultDescription,
-    url,
+    siteUrl,
     defaultImage,
     twitterUserName,
     author,
@@ -49,7 +49,7 @@ function SEO({ title, description, image, article }) {
     title: title || defaultTitle[lang],
     description: description || defaultDescription[lang],
     image: image || defaultImage,
-    url: `${url}${pathname}`,
+    siteUrl: `${siteUrl}${pathname}`,
   }
 
   const keywords = {
@@ -61,7 +61,7 @@ function SEO({ title, description, image, article }) {
     <Helmet title={seo.title} titleTemplate={titleTemplate[lang]}>
       <meta name="description" content={seo.description} />
       <meta name="image" content={seo.image} />
-      {seo.url && <meta property="og:url" content={seo.url} />}
+      {seo.url && <meta property="og:url" content={seo.siteUrl} />}
       {(article ? true : null) && <meta property="og:type" content="article" />}
       {seo.title && <meta property="og:title" content={seo.title} />}
       {seo.description && (
