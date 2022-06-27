@@ -23,7 +23,7 @@ function SEO({ title, description, image, article }) {
               ar
               en
             }
-            siteUrl: url
+            url
             defaultImage: image
             twitterUserName
             author
@@ -39,7 +39,7 @@ function SEO({ title, description, image, article }) {
     defaultTitle,
     titleTemplate,
     defaultDescription,
-    siteUrl,
+    url,
     defaultImage,
     twitterUserName,
     author,
@@ -49,14 +49,14 @@ function SEO({ title, description, image, article }) {
     title: title || defaultTitle[lang],
     description: description || defaultDescription[lang],
     image: image || defaultImage,
-    url: `${siteUrl}${pathname}`,
+    url: `${url}${pathname}`,
   }
 
   const keywords = {
     ar: `مؤسسة هيئة تطوير التعليم, منظمة هيئة تطوير التعليم, هيئة تطوير التعليم ,عقل , تعليم ,منظمة ,جمعية ,شافعي, ايتام الاتارب, مدرسة ايتام الاتارب, مدرسة واجدو الطريق, واجدو الطريق,مركز دابق,حاضنة الثقافية,كفالة يتيم تعليمية ,منتدى دابق الثقافي , كلس , منظمات, عبد الملك علبي, المنقطعين عن التعليم  `,
     en: `EDC organization, EDC, education development commission, Kilis, Aytam atarib, Wajdo A-Tariq School, Orphants, Dapiq, Dabiq Cultural Center, formal education, informal education, courses `,
   }
-
+console.log(seo);
   return (
     <Helmet title={seo.title} titleTemplate={titleTemplate[lang]}>
       <meta name="description" content={seo.description} />
