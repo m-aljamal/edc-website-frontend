@@ -552,6 +552,10 @@ const useContactText = () => {
       text: "Message",
     },
   }
+  const messageResponse = {
+    ar: ` شكراً على رسالتكم. سوف نرد عليكم في أقرب وقت ممكن.`,
+    en: `Thank you for your message. We will get back to you as soon as possible.`,
+  }
   const ourLocationTitle = {
     ar: "موقعنا:",
     en: "Our Location:",
@@ -577,6 +581,7 @@ const useContactText = () => {
     messageForm: messageForm[lang],
     ourLocationTitle: ourLocationTitle[lang],
     bankTitle: bankTitle[lang],
+    messageResponse: messageResponse[lang],
   }
 }
 
