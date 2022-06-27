@@ -5,7 +5,10 @@ import SEO from "../components/shared/seo"
 const IndexPage = ({ location }) => {
   return (
     <Layout location={location}>
-      <SEO title="تواصل معنا" />
+      <SEO
+        title="تواصل معنا"
+        description="يسرّ هيئة تطوير التعليم الإجابة على استفساراتكم والاستماع لآرائكم والرد على تعليقاتكم."
+      />
       <ContactPage />
     </Layout>
   )

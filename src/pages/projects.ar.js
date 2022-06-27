@@ -5,7 +5,10 @@ import SEO from "../components/shared/seo"
 const Projects = ({ location }) => {
   return (
     <Layout location={location}>
-      <SEO title="المشاريع" />
+      <SEO
+        title="المشاريع"
+        description="تتعاون هيئة تطوير التعليم مع المنظّمات والجمعيّات المحليّة والدوليّة في العمل على مشاريع تعليمّية."
+      />
       <ProjectsPage />
     </Layout>
   )
