@@ -29,6 +29,7 @@ const GalleryIndex = () => {
         nodes {
           title
           title_en
+          id
         }
       }
     }
@@ -40,7 +41,8 @@ const GalleryIndex = () => {
     all,
     filteredMedia,
   } = useSelectMedia(categories.nodes, images.nodes)
-
+console.log({categoriesFilter});
+console.log({categories});
   return (
     <div className="container py-8">
       <div className="flex flex-col md:flex-row  gap-5 justify-center my-5 ">
