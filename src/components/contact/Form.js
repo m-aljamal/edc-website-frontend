@@ -6,6 +6,7 @@ const style =
 const Form = () => {
   const { messageForm, messageResponse } = useContactText()
   const [state, handleSubmit] = useForm(process.env.GATSBY_SANITY_formSpree)
+  
   if (state.succeeded) {
     return (
       <div className="text-center text-xl md:text-3xl pt-8 text-gray-700 ">
