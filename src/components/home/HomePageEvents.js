@@ -58,11 +58,11 @@ const EventsList = () => {
           )}
         </div>
 
-        <div className="lg:w-1/4 h-[500px] lg:h-auto mt-20 lg:mt-0 shadow-lg ">
+        <div className="lg:w-1/4 h-[500px] lg:h-auto mt-10 lg:mt-0 lg:mx-8  ">
           <a
             className="twitter-timeline"
             data-width="100%"
-            data-height="100%"
+            data-height="500px"
             href="https://twitter.com/edcmission?ref_src=twsrc%5Etfw"
           >
             Tweets by edcmission
