@@ -58,6 +58,16 @@ export default ({ location }) => {
       },
       url: "/contact",
     },
+    {
+      id: 6,
+      ar: {
+        title: "الصور",
+      },
+      en: {
+        title: "Gallery",
+      },
+      url: "/images",
+    },
   ]
 
   return (
@@ -75,7 +85,7 @@ export default ({ location }) => {
             />
           </button>
         ))}
-        <div className="flex justify-center">
+        {/* <div className="flex justify-center">
           <div className="relative group">
             <button className="text-lg font-bold text-gray-800 flex items-center">
               {lang === "ar" ? "المعرض" : "Gallery"}
@@ -100,7 +110,7 @@ export default ({ location }) => {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
 
         <LanguageSelector lang={lang} location={location} />
       </div>

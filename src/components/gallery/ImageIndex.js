@@ -76,8 +76,8 @@ export const CatButton = ({ title, onClick, select }) => {
   return (
     <button
       className={`${
-        select === title ? "text-mainblue" : "text-gray-400"
-      }  font-bold text-lg cursor-pointer`}
+        select === title ? "text-mainblue" : "text-gray-400 text-md"
+      }  font-bold text-md cursor-pointer `}
       onClick={onClick}
     >
       {title}
