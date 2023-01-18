@@ -23,7 +23,6 @@ const Reports = () => {
     }
   `)
   const { reportTitle } = useHomePageText()
-  console.log(reports)
   return (
     <div className="container py-20">
       <Title title={reportTitle} />
