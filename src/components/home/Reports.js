@@ -23,10 +23,11 @@ const Reports = () => {
     }
   `)
   const { reportTitle } = useHomePageText()
+  console.log(reports)
   return (
     <div className="container py-20">
       <Title title={reportTitle} />
-      <div className="grid lg:grid-cols-2 grid-cols-2 gap-8 mt-12  ">
+      <div className="flex  ">
         {reports.nodes.map(({ cover, id, pdf_url }) => (
           <a
             target="_blank"
