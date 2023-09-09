@@ -52,7 +52,7 @@ export default function AboutText({ lang }) {
       `,
       four: `The commission vigorously defends its values of justice, equality, and development, and does not align itself with any political group working in conflict areas.`,
       five: `
-      Education Development Commission is a non-governmental, non-profit organization that works to develop special curricula for students in war and conflict areas, to help them catch-up the years of school that they have missed due to wars. The idea of establishing the commission came from the belief of those in charge of it that quality education opportunities should be available to all children who live in conflict areas, regardless of their social status and the nature of the conflict prevailing in their areas. 
+      Education Development Commission is a non-governmental licensed in Türkiye, non-profit organization that works to develop special curricula for students in war and conflict areas, to help them catch-up the years of school that they have missed due to wars. The idea of establishing the commission came from the belief of those in charge of it that quality education opportunities should be available to all children who live in conflict areas, regardless of their social status and the nature of the conflict prevailing in their areas. 
       `,
     },
   }
