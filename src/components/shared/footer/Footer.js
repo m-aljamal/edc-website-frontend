@@ -47,10 +47,10 @@ const Footer = () => {
               DOĞAN GÜREŞ PAŞA MAH. <br />
               MUSTAFA EREN CAD. 4/34 MERKEZ/KİLİS
             </p>
-          <p className="text-white font-bold">
+          <p className="text-white font-bold mt-2">
           مكان ورقم الترخيص:
         </p>
-          <p className="text-white">
+          <p className="text-gray-300">
         79-003-023
 تركيا - كليس
           </p>
