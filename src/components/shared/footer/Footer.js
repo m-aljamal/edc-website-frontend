@@ -50,7 +50,7 @@ const Footer = () => {
           <p className="text-white font-bold">
           مكان ورقم الترخيص:
         </p>
-          <p className="text-white font-bold">
+          <p className="text-white">
         79-003-023
 تركيا - كليس
           </p>
