@@ -48,11 +48,12 @@ const Footer = () => {
               MUSTAFA EREN CAD. 4/34 MERKEZ/KİLİS
             </p>
           <p className="text-white font-bold mt-2">
-          مكان ورقم الترخيص:
+          { lang === "ar" ? "مكان ورقم الترخيص:" : "Location and license number:"}  
         </p>
           <p className="text-gray-300">
-        79-003-023
-تركيا - كليس
+        79-003-023 {"   "}
+{lang === "ar" ? "Türkiye - Kilis" : "تركيا - كليس" }
+
           </p>
           </div>
           <div className="md:w-1/3">
