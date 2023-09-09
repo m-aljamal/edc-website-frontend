@@ -51,8 +51,8 @@ const Footer = () => {
           { lang === "ar" ? "مكان ورقم الترخيص:" : "Location and license number:"}  
         </p>
           <p className="text-gray-300">
-        79-003-023 {"   "}
-{lang === "ar" ? "Türkiye - Kilis" : "تركيا - كليس" }
+        79-003-023    {"   "}
+{lang === "ar" ?  "    تركيا - كليس"  : "   Türkiye - Kilis"}
 
           </p>
           </div>
