@@ -362,7 +362,7 @@ const useAboutText = () => {
     {
       text: {
         ar: `
-        هيئة تطوير التعليم هي منظّمة غير حكوميّة وغير ربحيّة، تعمل على تطوير
+        هيئة تطوير التعليم هي منظّمة غير حكوميّة وغير ربحيّة مرخصة في تركيا، تعمل على تطوير
         مناهج دراسيّة خاصّة للطلاب في مناطق الحروب والنزاعات، لتساعدهم على إدراك
         ما فاتهم من سنوات دراسيّة بسب الحروب. وجاءت فكرة تأسيس الهيئة من إيمان
         القائمين عليها بوجوب توفّر فرص التعليم النوعيّ لكافّةِ الأطفال الذين
@@ -370,7 +370,7 @@ const useAboutText = () => {
         السائد في مناطقهم.
         `,
         en: `
-        Education Development Commission is a non-governmental, non-profit organization that works to develop special curricula for students in war and conflict areas, to help them catch-up the years of school that they have missed due to wars. The idea of establishing the commission came from the belief of those in charge of it that quality education opportunities should be available to all children who live in conflict areas, regardless of their social status and the nature of the conflict prevailing in their areas.
+        Education Development Commission is a non-governmental licensed in Türkiye, non-profit organization that works to develop special curricula for students in war and conflict areas, to help them catch-up the years of school that they have missed due to wars. The idea of establishing the commission came from the belief of those in charge of it that quality education opportunities should be available to all children who live in conflict areas, regardless of their social status and the nature of the conflict prevailing in their areas.
         `,
       },
 
