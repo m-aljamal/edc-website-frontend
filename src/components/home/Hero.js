@@ -3,7 +3,7 @@ import { useLang } from "../../context/lang-context"
 const Hero = () => {
   const [lang] = useLang()
   const arabicUrl =
-    "https://res.cloudinary.com/dqoung1wz/video/upload/v1634197023/Video/homeVideo-arabic_rf3087.mp4"
+    "https://res.cloudinary.com/mohammadjamal/video/upload/v1731309177/wpk8qperu0x0esycrjnc.mp4"
   const englishUrl =
     "https://res.cloudinary.com/dqoung1wz/video/upload/v1634197021/Video/homeVideo-english_n3c4vd.mp4"
   return (
