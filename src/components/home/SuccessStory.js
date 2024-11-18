@@ -36,7 +36,7 @@ const Story = ({ story, image, title }) => {
         //     </p>
         //   </div>
         //   <img src={image} alt="studentImage" className="" />
-        // </div>
+        </div>
       </Background>
     </div>
   )
