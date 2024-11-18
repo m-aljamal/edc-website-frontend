@@ -32,7 +32,7 @@ const Story = ({ story, image, title }) => {
           >
             
           </div>
-          <img src={image} alt="studentImage" className="" />
+         
         </div>
       </Background>
     </div>
