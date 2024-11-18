@@ -22,19 +22,7 @@ const Story = ({ story, image, title }) => {
   `)
   return (
     <div className="relative ">
-      <Background image={background.image.asset.fluid}>
-        <div className="container flex flex-col md:flex-row  items-center gap-2 ">
-          <div
-            className={`text-right   py-4  ${
-              lang === "ar" ? "text-right" : "text-left"
-            }`}
-            style={{ direction: lang === "ar" ? "rtl" : "ltr" }}
-          >
-            
-          </div>
-         
-        </div>
-      </Background>
+      
     </div>
   )
 }
