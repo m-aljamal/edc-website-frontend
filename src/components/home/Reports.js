@@ -55,7 +55,7 @@ const Reports = () => {
 
     <div className="container py-20">
   <Title title={reportTitle} />
-  <div className="flex flex-wrap gap-5 mt-5">
+  <div className="flex  gap-5 mt-5">
     {reports.nodes.map(({ cover, id, pdf_url }) => (
       <a
         target="_blank"
