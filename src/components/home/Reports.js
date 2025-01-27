@@ -60,8 +60,6 @@
 
 
 
-
-
 import React from "react"
 import Title from "../shared/Title"
 import Img from "gatsby-image"
@@ -78,7 +76,7 @@ const Reports = () => {
           pdf_url
           cover {
             asset {
-              fluid(maxWidth: 600) {
+              fluid {
                 ...GatsbySanityImageFluid
               }
             }
@@ -115,11 +113,13 @@ const Reports = () => {
             key={id}
             className="relative transition duration-150 ease-out hover:scale-105 block"
           >
-            <Img
-              fluid={cover.asset.fluid}
-              alt={reportTitle}
-              className="rounded-md shadow-md w-full h-48 object-cover"
-            />
+            <div className="relative aspect-[3/4] w-full">
+              <Img
+                fluid={cover.asset.fluid}
+                alt={reportTitle}
+                className="rounded-md shadow-md w-full h-full object-contain"
+              />
+            </div>
             <div className="absolute inset-0 bg-gray-400 rounded-md opacity-0 hover:opacity-75 transition flex items-center justify-center">
               <div className="bg-mainblue rounded-full w-16 h-16 flex items-center justify-center">
                 <FiDownload className="text-white text-3xl" />
@@ -133,5 +133,7 @@ const Reports = () => {
 }
 
 export default Reports
+
+
 
 
